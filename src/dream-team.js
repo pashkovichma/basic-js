@@ -13,7 +13,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
-function createDreamTeam(teamArrange) {
+ function createDreamTeam(teamArrange) {
   let teamName = [];
   if (teamArrange){
     for (let i = 0; i < teamArrange.length; i++){
@@ -35,9 +35,3 @@ function createDreamTeam(teamArrange) {
 module.exports = {
   createDreamTeam
 };
-
-git add .
-git commit -m "feat: carbon dating"
-git push origin master
-
-
