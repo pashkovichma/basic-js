@@ -13,11 +13,31 @@ const { NotImplementedError } = require('../extensions/index.js');
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
-function createDreamTeam(/* members */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
-}
+function createDreamTeam(teamArrange) {
+  let teamName = [];
+  if (teamArrange){
+    for (let i = 0; i < teamArrange.length; i++){
+      if (typeof teamArrange[i] == 'string'){
+        teamName.push(((teamArrange[i].trim()).toUpperCase())[0]);
+        console.log(teamName);
+      }
+    };
+    if (teamName.length == 0) {
+      return false;
+    } else {
+      return (teamName.sort()).join('');
+    }
+  } else {
+    return false;
+  }
+};
 
 module.exports = {
   createDreamTeam
 };
+
+git add .
+git commit -m "feat: carbon dating"
+git push origin master
+
+
