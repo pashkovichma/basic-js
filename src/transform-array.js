@@ -20,10 +20,10 @@ function transform(arr) {
   for (let i = 0; i < arr.length; i ++){
     
     if ( i != 0){
-      if (arr[i] === '--double-prev'){
+      if (arr[i] === '--double-prev' && arr[i - 2] != '--discard-next'){
         res.push(arr[i - 1]);
       } 
-      if (arr[i] === '--discard-prev'){
+      if (arr[i] === '--discard-prev' && arr[i - 2] != '--discard-next'){
         res.pop();
       } 
     }
@@ -37,7 +37,9 @@ function transform(arr) {
     } 
     if (arr[i] != '--double-prev' && arr[i] != '--discard-prev' && arr[i] != '--double-next' && arr[i] != '--discard-next' && !flag){
       res.push(arr[i]);
-      if (flag == 1) flag =0;
+    }
+    if (arr[i - 1] === '--discard-next' ){
+      flag = 0;
     }
   }
   return res;
