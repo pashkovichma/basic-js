@@ -10,12 +10,19 @@ const chainMaker = {
     return this.chain.length;
   },
   addLink(value) {
-    this.chain.push(value);
+    if (value === null) {
+      this.chain.push('null');
+    } else {
+      this.chain.push(value);
+    }
+    
     return this;
   },
   removeLink(position) {
     if (position <= 0 || position > this.getLength() || typeof(position) != 'number'){
-      throw new Error ('You can\'t remove incorrect link!');
+      this.chain = [];
+      throw new Error (`You can't remove incorrect link!`);
+      console.log('1');
     } else {
       this.chain.splice(position - 1, 1);
     }
@@ -26,9 +33,11 @@ const chainMaker = {
     return this;
   },
   finishChain() {
-    let result = this.chain.map((el) =>`( ${el} )~~`).join('').slice(0, -2);
+    this.chain[0] = '( ' + this.chain[0];
+    let res = this.chain.join (' )~~( ');
+    res = res + ' )';
     this.chain = [];
-    return result;
+    return res;
   }
 };
 
